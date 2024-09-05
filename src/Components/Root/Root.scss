@@ -1,0 +1,102 @@
+@import "../../../styles.scss";
+main {
+    @include setDimension(100vw, 100vh);
+    background-color: var(--bg);
+    section {
+        flex-grow: 1;
+        overflow-y: auto;
+        .wrapper {
+            @include flex(center, center, column, 16, 25);
+
+            header {
+                @include setDimension(100%, 70px);
+                @include flex("", center, "", 0, 0);
+                min-height: rem(70);
+                background-color: var(--bg-high);
+                color: var(--textColor);
+            }
+        }
+        .setting {
+            position: absolute;
+            bottom: 10%;
+            right: rem(30);
+            color: var(--bg);
+            @include setDimension(30px, 30px);
+            @include flex(center, center, row, 0, 0);
+            cursor: pointer;
+            z-index: 1;
+            &::after {
+                content: "";
+                position: absolute;
+                @include rounded_icons(60, 60, var(--outlined-btn));
+                z-index: -1;
+                top: -15px;
+                left: -15px;
+            }
+        }
+    }
+
+    .offcanvas-start {
+        background-color: transparent;
+        overflow-y: hidden !important;
+        border: none;
+    }
+}
+// Search Modal
+.modal_dialogs {
+    .modal_contents {
+        @include minwidth_minheight(rem(550), rem(650));
+        background-color: var(--search-modal-bg);
+        box-shadow: var(--message-madal-box-shadow);
+    }
+
+    .input_filed_container {
+        @include setDimension(100%, rem(100));
+        @include flex(space-between, center, "", 15, 0);
+        padding: 0 rem(38);
+        border-bottom: 1px solid var(--input-border-color);
+
+        input {
+            height: rem(51);
+            box-shadow: none;
+            background-color: var(--search-modal-bg);
+            border: 2px solid var(--input-border-color);
+            color: #ffffff;
+
+            &::placeholder {
+                color: var(--textColor-200);
+                font-weight: 500;
+            }
+        }
+    }
+
+    .search_modal_body {
+        & :nth-child(2) {
+            margin-top: rem(32);
+        }
+        .search_modal_heading {
+            color: var(--text-color-600);
+        }
+
+        max-height: rem(500);
+        overflow-y: auto;
+        padding: rem(9) 0 0 rem(24) !important;
+
+        .heading {
+            font-size: rem(14);
+            color: var(--text-color-600);
+            font-weight: 500;
+        }
+        .summary {
+            font-size: rem(12);
+            color: var(--text-color-400);
+            font-weight: 500;
+            display: block;
+        }
+
+        // Mixin for scrollbar
+        & {
+            @include custom-scrollbar(rem(6), "", #c1c1c1, "");
+        }
+    }
+}

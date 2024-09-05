@@ -1,0 +1,87 @@
+@mixin flex($justify, $align, $direction, $gap, $padding) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: rem($gap);
+  padding: rem($padding);
+}
+
+// Mixin to set border-radius for the top-left and top-right corners
+@mixin topleft_topright_radius($left, $right) {
+  border-top-left-radius: $left;
+  border-top-right-radius: $right;
+}
+
+@mixin font($fs, $fw, $lineH) {
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lineH;
+}
+
+@mixin setDimension($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin hover($radius, $bg, $textColor: $textColor) {
+  border-radius: $radius;
+  background-color: $bg;
+  color: $textColor;
+}
+
+@mixin rounded_icons($width, $height, $bg) {
+  width: rem($width);
+  height: rem($height);
+  border-radius: 50%;
+  background-color: $bg;
+}
+
+@mixin outline_border($border, $outline) {
+  border: $border;
+  outline: $outline;
+}
+
+@mixin minwidth_minheight($min-width, $min-height) {
+  min-width: $min-width;
+  min-height: $min-height !important;
+}
+
+@mixin i_feather($width, $height, $bg) {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: rem($width);
+    height: rem($height);
+    border-radius: 50%;
+    background-color: $bg;
+    border: none;
+    z-index: -1;
+  }
+}
+
+// Custom scrollbar mixin
+@mixin custom-scrollbar(
+  $width,
+  $track-color,
+  $thumb-color,
+  $thumb-hover-color
+) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-color;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $thumb-hover-color;
+  }
+}
