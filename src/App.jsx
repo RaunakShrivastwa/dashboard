@@ -8,6 +8,18 @@ import RenderProject from './Components/RenderProject/RenderProject';
 import Header from './Components/Header/Header';
 import Login from './Components/Auth/Login/Login';
 import Signup from './Components/Auth/SignIn/Signup';
+import {jwtDecode} from 'jwt-decode';
+
+export function decodeToken(token) {
+  try {
+    return jwtDecode(token)  // Decode the token
+  } catch (err) {
+    console.log("There is an error while decoding the token", err);
+    return null;  // Return null in case of error
+  }
+}
+
+
 
 function App() {
   const [toggle, setToggle] = useState(false);
