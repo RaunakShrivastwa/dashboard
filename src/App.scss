@@ -1,4 +1,4 @@
-@import "../../../styles.scss";
+@import "../styles.scss";
 main {
     @include setDimension(100vw, 100vh);
     background-color: var(--bg);

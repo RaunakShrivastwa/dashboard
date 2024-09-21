@@ -173,12 +173,15 @@
             min-width: rem(230);
 
             img {
-                @include rounded_icons(40, 40, "");
+                @include rounded_icons(30, 30, "");
                 @include flex(center,center,'',0,0);
             }
 
             .login_user {
                 @include flex(center, center, column, 1, 0);
+                .name{
+                    @include textTruncate(rem(100))
+                }
             }
         }
     }

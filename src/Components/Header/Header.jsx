@@ -1,8 +1,8 @@
-import React from 'react'
+import Ract from 'react'
 
 function Header() {
   return (
-    <div>Header</div>
+    <div>Heade</div>
   )
 }
 
