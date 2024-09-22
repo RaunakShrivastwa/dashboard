@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Login.scss'
 import axios from 'axios';
 import dotenv from 'dotenv';
-import { decodeToken } from '../../../App';
+import { decodeToken, apiUrl } from '../../../App';
 import Cookies from 'js-cookie'
 
 
@@ -21,7 +21,7 @@ function Login() {
         }
 
         try {
-            const session = await axios.post(`http://18.209.163.121:5000/api/auth/token`, body);
+            const session = await axios.post(`${apiUrl()}api/auth/token`, body);
             Cookies.set('authtoken', session.data, { expires: 7 });
             const token = session.data;   
         } catch (err) {

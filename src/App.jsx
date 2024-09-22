@@ -19,6 +19,11 @@ export function decodeToken(token) {
   }
 }
 
+export function apiUrl() {
+  // return 'http://localhost:5000/';
+  return 'http://18.209.163.121:5000/';
+}
+
 
 
 function App() {
